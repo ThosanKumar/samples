@@ -1,10 +1,58 @@
-<!DOC TYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-     <title> audio 2</title>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<center><video src="C:\Users\lalam\Videos\Nazha Reborn (2021) [1080p] [WEBRip] [5.1] [YTS.MX]\Nazha.Reborn.2021.1080p.WEBRip.x264.AAC5.1-[YTS.MX].mp4" controls></center>
-</video>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="login.html">Login</a>
+    <a href="signup.html">Signup</a>
+  </nav>
+ 
+  <div class="content">
+    <h2>Login</h2>
+<form onsubmit="submitLoginForm(event)">
+  <input type="text" name="email" id="email" placeholder="Email" required><br><br>
+  <input type="password" name="password" id="password" placeholder="Password" required><br><br>
+  <button type="submit">Login</button>
+</form>
+<p id="message"></p>
+ 
+<script>
+  var z = localStorage.getItem('signupdata');
+  function submitLoginForm(e)
+  {
+    e.preventDefault();
+    var x = document.getElementById('email').value;
+    var y = document.getElementById('password').value;
+    var logindata = {email:x,passsword:y};
+   
+   
+    var data = JSON.parse(z);
+ 
+    if(x===data.email)
+  {
+    if(y===data.password)
+  {
+    alert('login success');
+    localStorage.setItem('userstatus',true);
+  }
+  else
+  {
+    alert('passowrd wrong')
+  }
+  }
+  else
+  {
+    alert('no email found')
+  }
+  }
+ 
+</script>
+ 
 </body>
 </html>
